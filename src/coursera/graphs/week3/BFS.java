@@ -72,7 +72,7 @@ public class BFS {
 		}
     	
     	System.out.println(pathList.toString());
-    	if(pathList.size() >= 0)
+    	if(pathList.size() - 1 > 0)
     		numEdges = pathList.size() - 1;
     	else
     		numEdges = -1;
