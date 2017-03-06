@@ -178,10 +178,10 @@ public class BinaryMinHeap<T> {
 		// TODO Auto-generated method stub
 		BinaryMinHeap<String> heap = new BinaryMinHeap<String>();
 		heap.Add(3, "Amit");
-		heap.Add(4, "Alida");
-		heap.Add(8, "Jessica");
-		heap.Add(1, "Lisa");
-		heap.Add(10, "Juthika");
+		heap.Add(4, "Brian");
+		heap.Add(8, "Caleb");
+		heap.Add(1, "Damien");
+		heap.Add(10, "Elon");
 		
 		heap.printHeap();
 		heap.decreaseWeight("Lisa", 11);
