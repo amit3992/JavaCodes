@@ -1,19 +1,36 @@
 package dataStructures.UnrolledLL;
+import java.util.*;
 
 public class Node {
 	
 	Node next;
 	int numElements;
-	int[] arr;
+	ArrayList<Integer> elements;
+	char ID;
 	
-	Node(int numElements, int a, int b, int c) {
-		this.numElements = numElements;
-		arr = new int[this.numElements];
-		arr[0] = a;
-		arr[1] = b;
-		arr[2] = c;
-		next = null;
-		
+	Node() {
+		this.numElements = 0;
+		this.elements = new ArrayList<Integer>();
 	}
-
+	
+	public void setNodeID (char id) {
+		this.ID = id;
+	}
+	
+	public char getNodeID () {
+		return this.ID;
+	}
+	
+	public int getNumElements() {
+		return numElements;
+	}
+	
+	public ArrayList<Integer> getElements() {
+		return elements;
+	}
+	
+	public void setElement(ArrayList<Integer> list) {
+		this.elements = list;
+	}
+	
 }

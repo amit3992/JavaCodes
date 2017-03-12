@@ -30,6 +30,7 @@ public class djikstra {
 	        nodePosition.put(node.v, current);
 
 	        while (parentIndex >= 0) {
+	        	
 	            Node parentNode = allNodes.get(parentIndex);
 	            Node currentNode = allNodes.get(current);
 	            if (parentNode.weight > currentNode.weight) {
@@ -46,11 +47,11 @@ public class djikstra {
 		public void decrease(Vertex v1, int newWeight){
 	        Integer position = nodePosition.get(v1);
 	        allNodes.get(position).weight = newWeight;
-	        int parent = (position -1 )/2;
+	        int parent = (position - 1 )/2;
 	        while(parent >= 0){
 	            if(allNodes.get(parent).weight > allNodes.get(position).weight){
 	                swap(allNodes.get(parent), allNodes.get(position));
-	                updatePositionMap(allNodes.get(parent) ,allNodes.get(position) ,parent,position);
+	                updatePositionMap(allNodes.get(parent) ,allNodes.get(position),parent,position);
 	                position = parent;
 	                parent = (parent-1)/2;
 	            }else{
@@ -78,7 +79,8 @@ public class djikstra {
 	    }
 		
 		public Node extractMinNode() {
-	        int size = allNodes.size() -1;
+			
+	        int size = allNodes.size() - 1;
 	        Node minNode = new Node();
 	        minNode.v = allNodes.get(0).v;
 	        minNode.weight = allNodes.get(0).weight;
@@ -263,6 +265,8 @@ public class djikstra {
     	Vertex srcVertex = null;
     	Vertex destVertex = null;
     	
+    	int distance = 0;
+    	
     	if(allVertices.containsKey(source)) {
     		srcVertex = allVertices.get(source);
     	}
@@ -312,8 +316,15 @@ public class djikstra {
         	}
         }
         
-    	return distanceMap.get(destVertex);
-        // Main Dijkstra implementation
+        if(distanceMap.get(destVertex) < -1000000) {
+        	distance = -1;
+        }
+        else {
+        	distance = distanceMap.get(destVertex);
+        }
+        
+        return distance;
+
         
     }
     
