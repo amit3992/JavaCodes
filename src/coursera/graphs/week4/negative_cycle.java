@@ -1,8 +1,8 @@
 package coursera.graphs.week4;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
+import java.util.Map.Entry;
+
 
 public class negative_cycle {
 	
@@ -79,6 +79,13 @@ public class negative_cycle {
 				isNegative = true;	
 			}
 		}
+    	
+    	ArrayList<Entry> list = new ArrayList<Entry>(distanceMap.entrySet());
+    	
+    	for(Entry e: list) {
+    		System.out.println(e);
+    	}
+    	
     	
         if(isNegative)
         	return 1;
