@@ -7,27 +7,42 @@ public class MyTrie {
 	boolean endOfWord;
 	boolean isBadSet;
 	String badWord;
+	int charCount;
 	
 	public MyTrie() {
 		root = new TrieNode();
 		endOfWord = false;
 		isBadSet = false;
 		badWord = null;
+		charCount = 0;
+	}
+	
+	public TrieNode getRoot() {
+		return root;
 	}
 	
 	// Iterative insertion into trie
 	public void insert(String word) {
+		
 		TrieNode current = root;
+		current.nodeNum = charCount;
+		//System.out.println("Root -> " + current.nodeNum);
 		for(int i = 0; i < word.length(); i++) {
+			
 			char ch = word.charAt(i);
 			current.numWordsAhead++;
 			TrieNode node = current.children.get(ch);
-
+			
 			if(node == null) {
+				charCount++;
 				node = new TrieNode();
+				node.nodeNum = charCount;
+				//System.out.println("Character -> " + ch + " at node number: " + node.nodeNum);
 				current.children.put(ch, node);
 			}
+			
 			current = node;
+			
 			if(current.endOfWord) {
 				this.isBadSet = true;
 				this.badWord = word;
@@ -55,6 +70,19 @@ public class MyTrie {
 			current.children.put(ch, node);
 		}
 		insertRecursive(node, word, index + 1);
+		
+	}
+	
+	private String displayData(TrieNode a, TrieNode b) {
+		return a.nodeNum + "->" + b.nodeNum + ": " + b.character;
+	}
+	
+	public void traverseTrie(TrieNode node) {
+		TrieNode current = node;
+		ArrayList<TrieNode> childList = new ArrayList<TrieNode>(current.children.values());
+		for(TrieNode n: childList) {
+			System.out.println(displayData(current, n));
+		}
 		
 	}
 	
