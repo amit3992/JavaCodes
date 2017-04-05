@@ -1,4 +1,4 @@
-package statistics;
+package hackerank.statistics;
 import java.util.*;
 import java.io.*;
 
