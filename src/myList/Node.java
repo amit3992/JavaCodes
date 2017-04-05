@@ -14,5 +14,10 @@ public class Node {
 		this.data = data;
 		this.next  = node;
 	}
+	
+	Node() {
+		this.data = 0;
+		this.next = null;
+	}
 
 }

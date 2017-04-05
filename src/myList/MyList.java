@@ -171,5 +171,29 @@ public class MyList {
 		}
 	}
 	
+	public Node reverse(Node node) {
+		
+		if(node == null) {
+			return null;
+		}
+		
+		Stack<Node> st = new Stack<Node>();
+		
+		Node currentNode = node;
+		Node newHead = new Node();
+		
+		while(currentNode != null) {
+			st.push(currentNode);
+			currentNode = currentNode.next;
+		}
+	
+		while(!st.isEmpty()) {
+			newHead = st.pop();
+			newHead = newHead.next;
+		}
+		
+		return newHead;
+	}
+	
 	
 }
