@@ -13,14 +13,15 @@ public class QuickSort {
 			return;
 		}
 		
-		int pivot = array[(left + right)/ 2];
-		int index = partition(array, left, right, pivot);
+		
+		int index = partition(array, left, right);
 		quickSort(array, left, index - 1);
 		quickSort(array, index, right);
 	}
 	
-	private int partition(int[] array, int left, int right, int pivot) {
-		
+	private int partition(int[] array, int left, int right) {
+	
+		int pivot = array[(left + right)/ 2];
 		while(left <= right) {
 			
 			while(array[left] < pivot) {

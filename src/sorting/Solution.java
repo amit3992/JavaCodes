@@ -19,40 +19,31 @@ public class Solution {
     
     private void quickSort(int[] array, int left, int right) {
         
-        if(left >= right) {
-            return;
+        if(left < right) {
+        	
+        	int index = partition(array, left, right);
+            quickSort(array, left, index - 1);
+            quickSort(array, index, right);
         }
-        
-       
-        int index = partition(array, left, right);
-        quickSort(array, left, index - 1);
-        quickSort(array, index, right);
-        
-//        printSubArray(array, left, right);
         
     }
     
     private int partition(int[] array, int left, int right) {
-    	int pivot = array[right];
+    	int pivot = array[left];
     	System.out.println("Pivot -> " + pivot);
-        while(left < right) {
-            
-            while(array[left] < pivot) {
-                left++;
-            }
-            
-            while(array[right] > pivot) {
-                right--;
-            }
-            
-            if(left <= right) {
-                swap(array, left, right);
-                left++;
-                right--;
-            }
-        }
         
-        return left;
+    	int i = left - 1;
+    	
+    	for(int j = left; j < right; j++) {
+    		if(array[j] <= pivot) {
+    			i = i + 1;
+    			swap(array, i, j);
+    		}
+    	}
+    	
+    	swap(array, i+1, right);
+    	
+       return i+1;
     }
     
     private void swap(int[] array, int i, int j) {

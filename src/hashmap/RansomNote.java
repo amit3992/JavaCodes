@@ -18,16 +18,42 @@ public class RansomNote {
 	
 	static int mapSize;
 	static int noteSize;
-	HashMap<Integer, String> wordMap;
+	static HashMap<Integer, String> wordMap = new HashMap<Integer, String>();
 	
 	public static void buildMap(String line) {
 		StringTokenizer st = new StringTokenizer(line," ");
 		
 		while(st.hasMoreTokens()) {
 			String s = st.nextToken();
-			// get unique hash value for s
-			// put key-> hash value, value -> string
+			int hashCode = s.hashCode() % 101;
+			wordMap.put(hashCode,s);
 		}
+	}
+	
+	public static void checkRansomNote(String line) {
+		StringTokenizer st = new StringTokenizer(line," ");
+		boolean flag = true;
+		
+		while(st.hasMoreTokens()) {
+			String s = st.nextToken();
+			int hashCode = s.hashCode() % 101;
+			if(wordMap.containsKey(hashCode)) {
+				//System.out.println("MAP CONTAINS " + s);
+				continue;
+			}
+			else {
+				flag = false;
+			}
+		}
+		
+		if(flag) {
+			System.out.println("YES");
+		}
+		else {
+			System.out.println("NO");
+		}
+		
+		
 	}
 
 	public static void main(String[] args) throws IOException {

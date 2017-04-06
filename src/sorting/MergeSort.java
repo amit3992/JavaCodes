@@ -1,75 +1,85 @@
 package sorting;
 
 public class MergeSort {
-	public boolean isAscending = true;
-	public static int[] theArray;
 	
-	MergeSort(int[] theArray, boolean isAscending) {
-		
-		this.theArray = theArray;
-		this.isAscending = isAscending;
-		doMergeSory(this.theArray);
-		Util.showArray(this.theArray);
+	static int[] array;
+	static int [] helper;
+	static int[] sortedArray;
+	
+	MergeSort(int [] array) {
+		this.array = array;
 	}
 	
-	MergeSort(int[] theArray) {
-		this.theArray = theArray;
-	}
-
-	public void doMergeSory(int[] theArray) {
+	public static void doMergeSort() {
 		
-		mergeSort(theArray, new int[theArray.length], 0, theArray.length - 1);
+		int size = array.length - 1;
+		helper = new int [array.length];
+		mergeSort(0,size);
 	}
-
-	private void mergeSort(int[] theArray, int[] temp, int leftStart, int rightEnd) {
+	
+	private static void mergeSort(int leftStart, int rightEnd) {
 		
-		if(leftStart >= rightEnd) {
-			return;
+		if(leftStart < rightEnd) {
+			int middle = leftStart + (rightEnd - leftStart)/2;
+			mergeSort(leftStart, middle);
+			mergeSort(middle + 1, rightEnd);
+			
+			merge(leftStart, middle, rightEnd);
 		}
-		
-		int middle = (rightEnd + leftStart)/2;
-		mergeSort(theArray, temp, leftStart, middle);
-		mergeSort(theArray, temp, middle+1, rightEnd);
-		mergeHalves(theArray, temp, leftStart, rightEnd);
-		
 	}
 
-	private void mergeHalves(int[] theArray, int[] temp, int leftStart, int rightEnd) {
+	private static void merge(int leftStart, int middle, int rightEnd) {
 		
-		int leftEnd = rightEnd + leftStart/2;
-		int rightStart = leftEnd + 1;
-		int size = rightEnd - leftStart + 1;
+		for(int i = leftStart; i <=  rightEnd; i++) {
+			helper[i] = array[i];
+		}
 		
 		int left = leftStart;
-		int right = rightStart;
-		
+		int right = middle + 1;
 		int index = leftStart;
 		
-		while(left <= leftEnd && right <= rightEnd) {
-			if(theArray[left] <= theArray[right]) {
-				temp[index] = theArray[left];
-				left++;
-			}
-			else {
-				temp[right] = theArray[right];
-				right++;
-			}
-			index++;
-		}
-		
-		System.arraycopy(theArray, left, temp, index, leftEnd - left + 1);
-		System.arraycopy(theArray, right, temp, index, rightEnd - right + 1);
-		System.arraycopy(temp, leftStart, theArray, leftStart, size);
-		
+		// Copy the smallest values from either the left or the right side back
+        // to the original array
+        while (left <= middle && right <= rightEnd) {
+                if (helper[left] <= helper[right]) {
+                        array[index] = helper[left];
+                        left++;
+                } else {
+                        array[index] = helper[right];
+                        right++;
+                }
+                index++;
+        }
+        
+     // Copy the rest of the left side of the array into the target array
+        while (left <= middle) {
+                array[index] = helper[left];
+                index++;
+                left++;
+        }
 		
 	}
 	
+	public int[] returnSortedArray() {
+		sortedArray = array;
+		return sortedArray;
+	}
+
 	public static void main(String[] args) {
 		
-		int [] array = {1,3,5,4,6,7,2,9,10,8};
-		MergeSort ms = new MergeSort(array);
-		ms.doMergeSory(array);
-		Util.showArray(theArray);
+		int [] arr = {1,4,5,6,8,10,3,2,9,7};
+		array = arr;
 		
+		long startTime = System.currentTimeMillis();
+		System.out.println("UNSORTED ARRAY");
+		Util.showArray(array);
+		doMergeSort();
+		System.out.println("SORTED ARRAY");
+		long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+        System.out.println("Mergesort -> " + elapsedTime);
+		Util.showArray(array);
+
 	}
+
 }

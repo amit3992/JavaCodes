@@ -180,16 +180,21 @@ public class MyList {
 		Stack<Node> st = new Stack<Node>();
 		
 		Node currentNode = node;
-		Node newHead = new Node();
+		Node newHead = null;
 		
 		while(currentNode != null) {
 			st.push(currentNode);
 			currentNode = currentNode.next;
 		}
 	
+		newHead = st.pop();
 		while(!st.isEmpty()) {
-			newHead = st.pop();
-			newHead = newHead.next;
+			Node newNode = newHead.next;
+			Node temp = st.pop();
+			newNode = temp;
+			newHead.next = newNode;
+//			newHead = 
+			
 		}
 		
 		return newHead;
