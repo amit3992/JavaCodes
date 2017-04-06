@@ -27,6 +27,15 @@ public class MyLLDriver {
 		}
 		System.out.println();
 		
+		
+		Node p = ll.mergeSortList(n);
+		System.out.println("SORTED LIST");
+		while(p != null) {
+			System.out.print(p.data + " ");
+			p = p.next;
+		}
+		System.out.println();
+		
 	}
 
 }

@@ -20,11 +20,12 @@ public class RadixSort {
 		int[] output = new int[n];
 		int i;
 		int [] count = new int[10]; // Buckets
+		
 		Arrays.fill(count, 0);
 		
 		 // Store count of occurrences in count[]
         for (i = 0; i < n; i++)
-            count[ (array[i]/exp)%10 ]++;
+            count[(array[i]/exp)%10]++;
         
         for (i = 1; i < 10; i++)
             count[i] += count[i - 1];
@@ -32,8 +33,8 @@ public class RadixSort {
      // Build the output array
         for (i = n - 1; i >= 0; i--)
         {
-            output[count[ (array[i]/exp)%10 ] - 1] = array[i];
-            count[ (array[i]/exp)%10 ]--;
+            output[count[(array[i]/exp)%10] - 1] = array[i];
+            count[(array[i]/exp)%10]--;
         }
         
         for (i = 0; i < n; i++)
