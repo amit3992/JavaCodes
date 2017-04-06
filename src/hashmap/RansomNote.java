@@ -18,35 +18,42 @@ public class RansomNote {
 	
 	static int mapSize;
 	static int noteSize;
-	static HashMap<Integer, String> wordMap = new HashMap<Integer, String>();
+	static HashMap<String, Integer> magazineWords = new HashMap<String, Integer>();
+	static HashMap<String, Integer> ransomeWords = new HashMap<String, Integer>();
+	static int ransomWords = 0;
 	
 	public static void buildMap(String line) {
 		StringTokenizer st = new StringTokenizer(line," ");
 		
 		while(st.hasMoreTokens()) {
 			String s = st.nextToken();
-			int hashCode = s.hashCode() % 101;
-			wordMap.put(hashCode,s);
+			if(magazineWords.get(s) == null) {
+				magazineWords.put(s, 1);
+			}
+			else {
+				magazineWords.put(s, magazineWords.get(s).intValue() + 1);
+			}
 		}
 	}
 	
 	public static void checkRansomNote(String line) {
 		StringTokenizer st = new StringTokenizer(line," ");
-		boolean flag = true;
+		int num = 0;
 		
 		while(st.hasMoreTokens()) {
 			String s = st.nextToken();
-			int hashCode = s.hashCode() % 101;
-			if(wordMap.containsKey(hashCode)) {
-				//System.out.println("MAP CONTAINS " + s);
-				continue;
+			
+			if(s!= null && magazineWords.get(s) != null) {
+				num++;
+				magazineWords.put(s, magazineWords.get(s).intValue() - 1);
 			}
 			else {
-				flag = false;
+				magazineWords.put(s,1);
 			}
+			
 		}
 		
-		if(flag) {
+		if(num == ransomWords) {
 			System.out.println("YES");
 		}
 		else {
@@ -62,10 +69,17 @@ public class RansomNote {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String line;
 		line = br.readLine();
-		mapSize = Integer.parseInt(line);
-		
-		line = br.readLine();
-		noteSize = Integer.parseInt(line);
+		StringTokenizer st = new StringTokenizer(line, " ");
+		int[] vals = new int[2];
+        int i = 0;
+        while(st.hasMoreTokens()) {
+            String s = st.nextToken();
+            vals[i] = Integer.parseInt(s);
+            i++;
+        }
+        
+        mapSize = vals[0];
+        ransomWords = noteSize = vals[1];
 		
 		line = br.readLine();
 		buildMap(line); // Build a hashmap of the words in sentence. Both, upper and lower case possible
