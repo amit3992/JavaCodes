@@ -1,73 +1,57 @@
 package sorting;
-import java.util.*;
-import java.io.*;
+
 
 public class QuickSort {
-	
-	public void sort(int [] array) {
-		quickSort(array, 0, array.length - 1);
-	}
-	
-	private void quickSort(int[] array, int left, int right) {
-		if(left >= right) {
-			return;
-		}
-		
-		
-		int index = partition(array, left, right);
-		quickSort(array, left, index - 1);
-		quickSort(array, index, right);
-	}
-	
-	private int partition(int[] array, int left, int right) {
-	
-		int pivot = array[(left + right)/ 2];
-		while(left <= right) {
-			
-			while(array[left] < pivot) {
-				left++;
-			}
-			
-			while(array[right] > pivot) {
-				right--;
-			}
-			
-			if(left <= right) {
-				swap(array, left, right);
-				left++;
-				right--;
-			}
-		}
-		
-		return left;
-	}
-	
-	private void swap(int[] array, int i, int j) {
-		int temp = array[i];
-		array[i] = array[j];
-		array[j] = temp;
-	}
-	
-	
-	public void printArray(int [] array) {
-		
-		for(int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
-		}
-	}
-	
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		int [] array = {2,5,6,1,3,4,10,8,9,7};
-		QuickSort qs = new QuickSort();
-		
-		qs.sort(array);
-		
-		System.out.println("Sorted Array: ");
-		qs.printArray(array);
+    private static int listToSort[] = new int[] {6, 5, 11, 4, 2, 5, 10, 3, 7, 8, 9};
 
-	}
+    public static void main(String[] args) {
+        print(listToSort);
+        quickSort(listToSort, 0, listToSort.length - 1);
+        print(listToSort);
+    }
 
+    public static void print(int[] listToSort) {
+        for (int el : listToSort) {
+            System.out.print(el + ",");
+        }
+        System.out.println();
+    }
+
+    public static void swap(int[] listToSort, int iIndex, int jIndex) {
+        int temp = listToSort[iIndex];
+        listToSort[iIndex] = listToSort[jIndex];
+        listToSort[jIndex] = temp;
+    }
+
+    public static void quickSort(int[] listToSort, int low, int high) {
+        if (low >= high) {
+            return;
+        }
+        int pivotIndex = partition(listToSort, low, high);
+        quickSort(listToSort, low, pivotIndex - 1);
+        quickSort(listToSort, pivotIndex + 1, high);
+    }
+
+    public static int partition(int[] listToSort, int low, int high) {
+        int pivot = listToSort[high];
+        int l = low;
+        int h = high;
+        while (l < h) {
+            while (listToSort[l] <= pivot && l < h) {
+                l++;
+            }
+            while (listToSort[h] > pivot) {
+                h--;
+            }
+            if (l < h) {
+                swap(listToSort, l, h);
+            }
+        }
+        swap(listToSort, low, h);
+
+        System.out.println("Pivot: " + pivot);
+        print(listToSort);
+        return h;
+    }
 }

@@ -13,6 +13,17 @@ public class QueueWithStacks<E> {
 		System.out.println("Successfully queued: " + item);
 	}
 	
+	public String peek() {
+		
+		while(!inbox.empty()) {
+			E val = inbox.pop();
+			outbox.push(val);
+			System.out.println("Added in outbox: " + val );
+		}
+		return outbox.peek().toString();
+		
+	}
+	
 	public E dequeue() {
 		
 		while(!inbox.empty()) {
