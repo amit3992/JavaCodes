@@ -129,9 +129,9 @@ public class BinarySearch {
 		int key = sc.nextInt();
 		int low = 0;
 		int high = array.length;
-		//binarySearchBasic(array, key, low, high);
+		binarySearchBasic(array, key, low, high);
 		//binarySearchFloor(array, key);
-		binarySearchDuplicate(array, key);
+		//binarySearchDuplicate(array, key);
 	}
 
 	
