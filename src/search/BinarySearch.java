@@ -125,13 +125,14 @@ public class BinarySearch {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int [] array = {2,3,4,5,5,5,5,6,7,8,11,14,16};
+		int [] array2 = {5,7,7,8,8,10};
 		Scanner sc = new Scanner(System.in);
 		int key = sc.nextInt();
 		int low = 0;
 		int high = array.length;
-		binarySearchBasic(array, key, low, high);
+		//binarySearchBasic(array, key, low, high);
 		//binarySearchFloor(array, key);
-		//binarySearchDuplicate(array, key);
+		binarySearchDuplicate(array2, key);
 	}
 
 	
