@@ -193,20 +193,37 @@ public class MyList {
 	}
 	
 	public Node oddEvenList(Node head) {
-		if (head != null) {
-		    
-	        Node odd = head, even = head.next, evenHead = even; 
-	    
-	        while (even != null && even.next != null) {
-	            odd.next = odd.next.next; 
-	            even.next = even.next.next; 
-	            odd = odd.next;
-	            even = even.next;
-	        }
-	        odd.next = evenHead; 
-	    }
 		
-	    return head;
+		if(head == null) {
+			return null;
+		}
+		
+		Node odd = head;
+		Node even = head.next;
+		
+		Node evenHead = even; // To connect at the end of oddList
+		
+		while(true) {
+			if(odd == null || even == null || even.next == null) {
+				odd.next = evenHead;
+				break;
+			}
+			
+			odd.next = even.next;
+			odd = even.next;
+			
+			if(odd.next == null) {
+				even.next = null;
+				odd.next = evenHead;
+				break;
+				
+			}
+			
+			even.next = odd.next;
+			even = odd.next;
+		}
+		
+		return head;
 		
 	}
 	
