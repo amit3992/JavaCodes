@@ -9,11 +9,13 @@
 /dataStructures/
 /geeksforgeeks/
 /graphs/
+/hackerank/
 /hashmap/
 /leetCode/
 /mergingTables/
 /myList/
 /oop/
+/search/
 /sorting/
 /Files.class
 /IndeedArray.class
@@ -21,5 +23,3 @@
 /itemImage.class
 /testFileClass.class
 /testReplace.class
-/search/
-/hackerank/

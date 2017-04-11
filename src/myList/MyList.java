@@ -192,6 +192,23 @@ public class MyList {
 		return node;
 	}
 	
+	public Node oddEvenList(Node head) {
+		if (head != null) {
+		    
+	        Node odd = head, even = head.next, evenHead = even; 
+	    
+	        while (even != null && even.next != null) {
+	            odd.next = odd.next.next; 
+	            even.next = even.next.next; 
+	            odd = odd.next;
+	            even = even.next;
+	        }
+	        odd.next = evenHead; 
+	    }
+		
+	    return head;
+		
+	}
 	
 	public Node mergeSortList(Node head) {
 		if(head == null) {
