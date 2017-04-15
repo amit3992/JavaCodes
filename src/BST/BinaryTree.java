@@ -198,6 +198,53 @@ public class BinaryTree {
 		
 	}
 	
+	boolean checkBST(Node root) {
+        
+        return isBST(root, 100000, -100000);
+         
+    }
+
+    public boolean isBST(Node root, int max, int min) {
+        if(root == null) {
+            return true;
+        }
+        
+        if(root.key <= min || root.key >= max) {
+            return false;
+        }
+        
+        return isBST(root.left, root.key, min) && isBST(root.right, max, root.key);
+    }
+	
+    public boolean BSTCheck(Node root)
+    {
+      if(root==null) return false;
+      
+     Stack<Node> stack=new Stack();
+     Node lastvisited=null;
+    
+     while(!stack.isEmpty()||(root!=null))
+    {
+       if(root!=null)
+    {
+    	   stack.push(root);
+    	   root=root.left;
+    }
+    else
+    {
+    	   lastvisited = stack.pop();
+           if(lastvisited != null && root.key <= lastvisited.key) {
+             return false;
+           }
+             else
+        {
+            lastvisited = root;
+            root = root.right;
+        }
+    }
+    }
+    return true;
+    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
