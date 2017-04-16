@@ -7,9 +7,9 @@
 /code/
 /coursera/
 /dataStructures/
-/geeksforgeeks/
-/graphs/
-/hackerank/
+/Files.class
+/IndeedArray.class
+/Utils.class
 /hashmap/
 /leetCode/
 /mergingTables/
@@ -17,10 +17,10 @@
 /oop/
 /search/
 /sorting/
-/Files.class
-/IndeedArray.class
-/Utils.class
+/dynamicProgramming/
+/geeksforgeeks/
+/graphs/
+/hackerank/
 /itemImage.class
 /testFileClass.class
 /testReplace.class
-/dynamicProgramming/
