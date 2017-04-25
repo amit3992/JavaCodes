@@ -34,7 +34,7 @@ public class QuickSort {
     }
 
     public static int partition(int[] listToSort, int low, int high) {
-        int pivot = listToSort[high];
+        int pivot = listToSort[low];
         int l = low;
         int h = high;
         while (l < h) {

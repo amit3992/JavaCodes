@@ -6,7 +6,7 @@ public class BinarySearch {
 	public static void binarySearchBasic(int[] arr, int key, int l, int r) {
 		
 		/*
-		 * Basic binary search. Returns the rightmost index of the key if dupulicate keys are present.
+		 * Basic binary search. Returns the rightmost index of the key if duplicate keys are present.
 		 * Running time - O(logN)
 		 */
 		int mid = 0;
