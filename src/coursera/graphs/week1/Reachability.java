@@ -3,7 +3,7 @@ package coursera.graphs.week1;
 import java.util.*;
 
 public class Reachability {
-	private static int  v;
+	private static int v;
 	
     private static int reach(ArrayList<Integer>[] adj, int x, int y) {
        

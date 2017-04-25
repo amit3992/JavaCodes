@@ -198,6 +198,53 @@ public class BinaryTree {
 		
 	}
 	
+	public int getLeavesCount(Node root) {
+		
+		if(root == null) {
+			return 0;
+		}
+		
+		if(root.left == null && root.right == null) {
+			return 1;
+		}
+		else
+			return getLeavesCount(root.left) + getLeavesCount(root.right);
+	}
+	
+	void printPaths(Node root) {
+		int path[] = new int[1000];
+		printPathsUtil(root, path,0);
+	}
+	
+	private void printPathsUtil(Node root, int[] path, int pathLen) {
+		// TODO Auto-generated method stub
+		if(root == null)
+			return;
+		
+		path[pathLen] = root.key;
+		pathLen++;
+		
+		if(root.left == null && root.right == null) {
+			printArray(path, pathLen);
+		}
+		else {
+			printPathsUtil(root.left, path, pathLen);
+			printPathsUtil(root.right, path, pathLen);
+		}
+		
+	}
+	
+	 /* Utility function that prints out an array on a line. */
+    void printArray(int ints[], int len) 
+    {
+        int i;
+        for (i = 0; i < len; i++) 
+        {
+            System.out.print(ints[i] + " ");
+        }
+        System.out.println("");
+    }
+
 	boolean checkBST(Node root) {
         
         return isBST(root, 100000, -100000);
@@ -245,6 +292,8 @@ public class BinaryTree {
     }
     return true;
     }
+    
+    
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -300,6 +349,18 @@ public class BinaryTree {
 		
 		System.out.println("REVERSE LEVEL ORDER");
 		bt.reverseLevelOrderTraversal(root);
+		
+		System.out.println();
+		System.out.println();
+		
+		
+		System.out.println("PRINT ALL PATHS");
+		bt.printPaths(root);
+		
+		System.out.println();
+		
+		System.out.println("NUMBER OF LEAVES -> " + bt.getLeavesCount(root));
+		
 		
 		
 		

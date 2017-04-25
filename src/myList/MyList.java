@@ -192,6 +192,31 @@ public class MyList {
 		return node;
 	}
 	
+	public Node reverseK(Node head, int k) {
+		
+		Node current = head;
+		Node prev = null;
+		Node next = null;
+		
+		int count = 0;
+		
+		// Reverse first k nodes of the linkedlist
+		while(count < k && current != null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+			count++;
+		}
+		
+		// next now points to (k+1)th node.
+		if(next != null) {
+			head.next = reverseK(next, k);
+		}
+		
+		return prev;
+	}
+	
 	public Node oddEvenList(Node head) {
 		
 		if(head == null) {
