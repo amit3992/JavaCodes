@@ -4,7 +4,6 @@
 /LinkedList/
 /School/
 /TreeTest/
-/cache/
 /code/
 /coursera/
 /dataStructures/
@@ -25,4 +24,5 @@
 /itemImage.class
 /testFileClass.class
 /testReplace.class
-/heap/
+/doublyLinkedList/
+/myDoublyLinkedList/
