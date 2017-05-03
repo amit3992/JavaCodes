@@ -56,6 +56,35 @@ public class VerticalTree {
 		
 		
 	}
+	
+	public int getDiameter(Node root) {
+		
+		return calcDiameter(root);
+	}
+
+	private int calcDiameter(Node root) {
+		if(root == null) {
+			return 0;
+		}
+		
+		// Get height of left and right subtrees
+		int lHeight = getHeight(root.left);
+		int rHeight = getHeight(root.right);
+		
+		// Get diameter of left and right subtrees
+		int lDiameter = calcDiameter(root.left);
+		int rDiameter = calcDiameter(root.right);
+		
+		return Math.max(lHeight + rHeight + 1, Math.max(lDiameter, rDiameter));
+	}
+	
+	static int getHeight(Node root) {
+		if(root == null) {
+			return 0;
+		}
+		
+		return (1 + Math.max(getHeight(root.left), getHeight(root.right)));
+	}
 
 	public static void main(String[] args) {
 		
@@ -77,6 +106,17 @@ public class VerticalTree {
 		System.out.println("VERTICAL TREE TRAVERSAL");
 		vt.traverseVertical(root);
 		
+		
+		VerticalTree tree = new VerticalTree();
+		Node root2 = new Node(1);
+        root2.left = new Node(2);
+        root2.right = new Node(3);
+        root2.left.left = new Node(4);
+        root2.left.right = new Node(5);
+        
+        System.out.println("Diameter of tree 2 -> " + tree.getDiameter(root2));
+        System.out.println("Diameter of tree 1 -> " + vt.getDiameter(root));
+ 
 		
 
 	}
