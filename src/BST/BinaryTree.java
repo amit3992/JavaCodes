@@ -293,6 +293,92 @@ public class BinaryTree {
     return true;
     }
     
+    public void spiralWithTwoStack(Node root) {
+    	if(root == null) {
+    		return;
+    	}
+    	
+    	Stack<Node> s1 = new Stack<Node>();
+    	Stack<Node> s2 = new Stack<Node>();
+    	
+    	s1.push(root);
+    	
+    	while(!s1.isEmpty() || !s2.isEmpty()) {
+    		while(!s1.isEmpty()) {
+    			root = s1.pop();
+    			System.out.print(root.key + " ");
+    			
+    			if(root.left != null) {
+    				s2.push(root.left);
+    			}
+    			
+    			if(root.right != null) {
+    				s2.push(root.right);
+    			}
+    		}
+    		
+    		while(!s2.isEmpty()) {
+    			root = s2.pop();
+    			System.out.print(root.key + " ");
+    			
+    			if(root.right != null) {
+    				s1.push(root.right);
+    			}
+    			if(root.left != null) {
+    				s1.push(root.left);
+    			}
+    		}
+    	}
+    }
+    
+    public void spiralWithDeque(Node root) {
+    	if(root == null) {
+    		return;
+    	}
+    	
+    	Deque<Node> deque = new LinkedList<Node>();
+    	deque.offerFirst(root);
+    	int count = 1;
+    	boolean flip = true;
+    	
+    	while(!deque.isEmpty()) {
+    		int currentCount = 0;
+    		while(count > 0) {
+    			if(flip) {
+    				root = deque.pollFirst();
+    				System.out.print(root.key + " ");
+    				
+    				if(root.left != null) {
+    					deque.offerLast(root.left);
+    					currentCount++;
+    				}
+    				
+    				if(root.right != null) {
+    					deque.offerLast(root.right);
+    					currentCount++;
+    				}
+    			} else {
+    				root = deque.pollLast();
+    				System.out.print(root.key + " ");
+    				
+    				if(root.right != null) {
+    					deque.offerFirst(root.right);
+    					currentCount++;
+    				}
+    				
+    				if(root.left != null) {
+    					deque.offerFirst(root.left);
+    					currentCount++;
+    				}
+    			}
+    			count--;
+    		}
+    		
+    		flip = !flip;
+    		count = currentCount;
+    	}
+    }
+    
     
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -303,6 +389,7 @@ public class BinaryTree {
 		Node node3 = new Node(1);
 		Node node4 = new Node(4);
 		Node node5 = new Node(6);
+	
 		
 		root.left = node1;
 		root.right = node2;
@@ -310,12 +397,42 @@ public class BinaryTree {
 		node1.right = node4;
 		node2.left = node5;
 		
+		
+		Node n1 = new Node(1);
+		Node n2 = new Node(2);
+		Node n3 = new Node(3);
+		Node n4 = new Node(4);
+		Node n5 = new Node(5);
+		Node n6 = new Node(6);
+		Node n7 = new Node(7);
+		Node n8 = new Node(8);
+		Node n9 = new Node(9);
+		Node n10 = new Node(10);
+		Node n11 = new Node(11);
+		
+		n1.left = n2;
+		n1.right = n3;
+		
+		n1.left.left = n4;
+		n1.left.right = n5;
+		
+		n1.right.left = n6;
+		n1.right.right = n7;
+		
+		n1.left.left.left = n8;
+		n1.left.left.right = n9;
+		
+		n1.left.right.left = n10;
+		n1.left.right.right = n11;
+		
 		BinaryTree bt = new BinaryTree();
 		
 		System.out.println("POST");
 		bt.iterativePostOrder(root);
 		System.out.println();
 		bt.recursivePostOrder(root);
+		System.out.println("\nNode n1 - > ");
+		bt.iterativePostOrder(n1);
 		
 		
 		System.out.println();
@@ -342,6 +459,8 @@ public class BinaryTree {
 		
 		System.out.println("LEVEL ORDER");
 		bt.levelOrderTraversal(root);
+		System.out.println();
+		bt.levelOrderTraversal(n1);
 		
 		System.out.println();
 		System.out.println();
@@ -360,6 +479,17 @@ public class BinaryTree {
 		System.out.println();
 		
 		System.out.println("NUMBER OF LEAVES -> " + bt.getLeavesCount(root));
+		System.out.println();
+		
+		
+		System.out.println("SPIRAL LEVEL ORDER TRAVERSAL WITH 2 STACKS");
+		bt.spiralWithTwoStack(n1);
+		
+		System.out.println();
+		
+		
+		System.out.println("SPIRAL LEVEL ORDER TRAVERSAL WITH 1 DEQUE");
+		bt.spiralWithDeque(n1);
 		
 		
 		
