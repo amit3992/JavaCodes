@@ -60,10 +60,7 @@ public class QuickSelect {
 		// TODO Auto-generated method stub
 		int[] array = {9, 8, 7, 6, 5, 0, 1, 2, 3, 4};
 		
-		for(int i = 0; i < array.length; i++) {
-			System.out.println(quickSelect(array, i));
-		}
-		
+		System.out.println(quickSelect(array, 1));
 		
 
 	}

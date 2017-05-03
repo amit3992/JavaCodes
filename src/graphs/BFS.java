@@ -57,12 +57,12 @@ public class BFS {
 		g.addEdge(3, 1);
 		g.addEdge(1, 2);
 		g.addEdge(2, 0);
-       
- 
+
+      
         System.out.println("Following is Breadth First Traversal "+
-                           "(starting from vertex 2)");
+                           "(starting from vertex 1)");
  
-        g.BFSTraversal(1);
+        g.BFSTraversal(0);
 
 	}
 
