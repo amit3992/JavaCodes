@@ -20,7 +20,7 @@ public class MyLLDriver {
 		Node n = ll.getHead();
 		Node m = ll.reverse(n);
 		Node p = ll.oddEvenList(n);
-		Node r = ll.reverseK(n, 2);
+		//Node r = ll.reverseK(n, 2);
 		
 		System.out.println("\nREVERSED LIST");
 		while(m != null) {
@@ -29,12 +29,29 @@ public class MyLLDriver {
 		}
 		System.out.println();
 		
-		System.out.println("\nREVERSEd K LIST");
+		/*System.out.println("\nREVERSEd K LIST");
 		while(r != null) {
 			System.out.print(r.data + " ");
 			r = r.next;
 		}
-		System.out.println();
+		System.out.println();*/
+		
+		MyList llist = new MyList();
+		llist.insertAtHead(20);
+        llist.insertAtEnd(13);
+        llist.insertAtEnd(13);
+        llist.insertAtEnd(11);
+        llist.insertAtEnd(11);
+        llist.insertAtEnd(11);
+        
+        System.out.println();
+        System.out.println("Before removing duplicates");
+        llist.printList();
+        
+        llist.removeDuplicates();
+        
+        System.out.println("\nAfter removing duplicates");
+        llist.printList();
 		
 		
 		

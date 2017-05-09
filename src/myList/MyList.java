@@ -341,4 +341,27 @@ public class MyList {
 	}
 	
 	
+	public void removeDuplicates() {
+		if(head == null) {
+			return;
+		}
+		
+		Node current = head;
+		Node next = null;
+		
+		while(current.next != null) {
+			
+			/*Compare current node with next node*/
+			if(current.data == current.next.data) {
+				next = current.next.next;
+				current.next = null;
+				current.next = next;
+			} else {
+				current = current.next;
+			}
+		}
+		
+	}
+	
+	
 }

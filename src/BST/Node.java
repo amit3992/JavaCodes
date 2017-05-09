@@ -3,6 +3,7 @@ package BST;
 public class Node {
 	
 		int key;
+		int height; // For AVL
 		
 		Node left;
 		Node right;
@@ -11,6 +12,7 @@ public class Node {
 			this.key = key;
 			this.left = null;
 			this.right = null;
+			this.height = 1;
 		}
 
 }
