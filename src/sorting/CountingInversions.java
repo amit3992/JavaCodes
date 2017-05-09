@@ -37,7 +37,7 @@ public class CountingInversions {
 		
 		int curr = start;
 		int left = start;
-		int right = mid;
+		int right = mid + 1;
 		
 		/* Loop through helper[] left and right halves and continuously copy smaller element to array[] */
 		while(left <= mid && right <= end) {
