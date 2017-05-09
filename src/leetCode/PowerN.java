@@ -4,18 +4,19 @@ import java.util.Scanner;
 
 public class PowerN {
 	
-	public static double powN(double x, int n) {
+	public static double powN(double x, int y) {
 		
-		double temp = x;
-		if(n == 1)
+		double temp = 0;
+		
+		if(y == 0)
 			return 1;
 		
-		temp = powN(x,n/2);
+		temp = powN(x, y/2);
 		
-		if(n % 2 == 0) {
+		if(y % 2 == 0) {
 			return temp * temp;
 		} else {
-			if(n > 0)
+			if(y > 0)
 				return x * temp * temp;
 			else
 				return (temp * temp)/x;
@@ -25,10 +26,10 @@ public class PowerN {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		double x = sc.nextDouble();
-		int n = sc.nextInt();
+		double x = 2;
+		int y = -3;
 		
-		System.out.println("Ans -> " + powN(x,n));
+		System.out.println("Ans -> " + powN(x,y));
 	}
 
 }
