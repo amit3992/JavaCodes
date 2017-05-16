@@ -10,8 +10,6 @@
 /dataStructures/
 /dynamicProgramming/
 /geeksforgeeks/
-/Files.class
-/IndeedArray.class
 /graphs/
 /hackerank/
 /hackerrank/
@@ -25,6 +23,8 @@
 /search/
 /sorting/
 /test/
+/Files.class
+/IndeedArray.class
 /Utils.class
 /itemImage.class
 /testFileClass.class

@@ -3,48 +3,32 @@ import java.util.*;
 
 public class PowerSet {
 	
-	ArrayList<ArrayList<Integer>> powerSet;
+	private static boolean checkBit(int x, int k) {
+		return (x & 1 << k) != 0;
+	}
 	
-	ArrayList<ArrayList<Integer>> computePowerSet(ArrayList<Integer> set, int index) {
-		if(set.size() == index) {
-			powerSet = new ArrayList<ArrayList<Integer>>();
-			powerSet.add(new ArrayList<Integer>());
-		} else {
-			powerSet = computePowerSet(set, index + 1);
-			int item = set.get(index);
-			ArrayList<ArrayList<Integer>> moreSets = new ArrayList<ArrayList<Integer>>();
+	public static void printPowerSet(char[] set) {
+		int size = set.length;
+		int power_size = (int) Math.pow(2, new Double(size));
+		int count = 0;
+		
+		for(count = 0; count < power_size; count++) {
 			
-			for(ArrayList<Integer> subSet : powerSet) {
-				ArrayList<Integer> newSubSet = new ArrayList<Integer>();
-				newSubSet.addAll(subSet);
-				newSubSet.add(item);
-				moreSets.add(newSubSet);
+			System.out.println("Count -> " + count);
+			for(int j = 0; j < size; j++) {
+				
+				if(checkBit(count, j)) {
+					System.out.print(set[j]);
+				} 
+				
 			}
-			
-			powerSet.addAll(moreSets);
+			System.out.println();
 		}
-		
-		return powerSet;
-		
-		
 	}
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		//int n = sc.nextInt();
-		
-		PowerSet ps = new PowerSet();
-		
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		
-		for(ArrayList<Integer> set: ps.computePowerSet(list, 0)) {
-			System.out.println(set.toString());
-		}
-		
-		
+		char[] set = {'a','b','c'};
+		printPowerSet(set);
 	}
 
 }
