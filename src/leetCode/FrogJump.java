@@ -28,8 +28,7 @@ public class FrogJump {
 			
 			for(int i = 4; i <= N; i++) {
 				ways[i] = ways[i-1] + ways[i-3];
-			}
-			
+			}		
 			return ways[N];
 		}
 			

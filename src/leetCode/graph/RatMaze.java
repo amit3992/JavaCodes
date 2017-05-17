@@ -12,7 +12,7 @@ public class RatMaze {
 			int [][] sol = {{0,0,0,0}, 
 							{0,0,0,0}, 
 							{0,0,0,0}, 
-							{0,0,0,0}};
+						{0,0,0,0}};
 			
 			if(solveMazeUtil(maze, 0, 0, sol) == false) {
 				System.out.println("No solution exists!");
