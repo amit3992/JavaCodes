@@ -177,8 +177,8 @@ public class MyList {
 			return null;
 		}
 		
-		Node prev = null;
 		Node current = node;
+		Node prev = null;
 		Node next = null;
 		
 		while(current != null) {

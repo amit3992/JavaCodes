@@ -67,6 +67,7 @@ public class BinaryTree {
 		    
 		    while(!stack1.isEmpty()) {
 		        root = stack1.pop();
+		        
 		        if(root.left != null) {
 		            stack1.push(root.left);
 		        }

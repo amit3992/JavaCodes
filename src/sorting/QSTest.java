@@ -23,7 +23,7 @@ public class QSTest {
  
 		// pick the pivot
 		//int middle = low + (high - low) / 2;
-		int pivot = arr[low];
+		int pivot = arr[high];
  
 		// make left < pivot and right > pivot
 		int i = low, j = high;

@@ -45,7 +45,7 @@ public class CSTest {
 	        aux[counts[array[i] - min]--] = array[i];
 	    }
 		
-		System.out.println("SORTED ARRAY");
+		System.out.println("\nSORTED ARRAY");
 		for(int i = 0; i < aux.length; i++) {
 			System.out.print(aux[i] + " ");
 		}

@@ -19,7 +19,8 @@ public class FindKthLargest {
 		
 		for(int i = start; i < end; i++) {
 			if(array[i] < pivot) {
-				swap(array, left++, i);
+				swap(array, left, i);
+				left++;
 			}
 		}
 		
