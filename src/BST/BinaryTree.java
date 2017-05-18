@@ -4,6 +4,7 @@ import java.util.*;
 
 public class BinaryTree {
 	
+	/* =================================================  RECURSIVE TRAVERSALS =================================================  */
 	public void recursiveInOrder(Node root) {
 
 		if(root == null) {
@@ -34,6 +35,9 @@ public class BinaryTree {
 		recursivePreOrder(root.left);
 		recursivePreOrder(root.right);
 	}
+	
+	
+	/* =================================================  ITERATIVE TRAVERSALS =================================================  */
 	
 	private void iterativeInOrder(Node root) {
 		// TODO Auto-generated method stub
