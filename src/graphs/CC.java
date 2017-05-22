@@ -53,7 +53,6 @@ public class CC {
 			if(visited[i] == false) {
 				count++;
 				DFSTraverse(i, visited);
-				System.out.println();
 			}
 		}
 		
