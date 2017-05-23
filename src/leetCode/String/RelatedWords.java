@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 import java.io.*;
 /*Link: https://www.hiredintech.com/classrooms/algorithm-design/lesson/27/task/19*/
 
-/*It is a nice day today, the sun is shining. However, the weather is expected to get worse the following few days. Nice day by day weather forecasts can be found literally everywhere on the “Internet”. So, it is quite easy to know what to expect tomorrow.*/
+/*It is a nice day today, the sun is shining. However, the weather is expected to get worse the following few days. Nice day by day weather forecasts can be found literally everywhere on the â€œInternetâ€�. So, it is quite easy to know what to expect tomorrow.*/
 
 public class RelatedWords {
 	
@@ -26,6 +26,8 @@ public class RelatedWords {
 				addWordsToMap(words, word, i, n, len);
 			}
 		}
+		
+		return new String();
 	}
 	
 	public void addWordsToMap(String[] words, String word, int loc, int n, int len) {
@@ -33,7 +35,6 @@ public class RelatedWords {
 		int start = loc - n;
 		int end = loc + n;
 		
-		i
 		for(int i = start; i <= end; i++) {
 			
 			if(i < 0 || i >= len) {
@@ -53,7 +54,9 @@ public class RelatedWords {
 		String word = br.readLine();
 		int n = Integer.parseInt(br.readLine());
 		
-		System.out.println("Related word in given sentence -> " + getRelatedWord(sentence, word, n));
+		RelatedWords r = new RelatedWords();
+		
+		System.out.println("Related word in given sentence -> " + r.getRelatedWord(sentence, word, n));
 
 	}
 

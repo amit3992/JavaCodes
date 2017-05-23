@@ -64,6 +64,7 @@ public class UnionIntersection {
 		System.out.println();
 		System.out.print("Intersection -> ");
 		showIntersection(array1, array2, aLen, bLen);
+
 		
 	}
 

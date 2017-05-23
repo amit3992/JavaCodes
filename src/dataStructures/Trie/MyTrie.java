@@ -144,6 +144,7 @@ public class MyTrie {
 	}
 	
 	private boolean delete(TrieNode current, String word, int index) {
+		
 		if(index == word.length()) {
 			// When end of the word is reached, only delete if current.endOfWord == true
 			if(!current.endOfWord) {

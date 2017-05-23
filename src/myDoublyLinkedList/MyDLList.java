@@ -107,9 +107,6 @@ public class MyDLList<E> {
 			throw new Exception("List is empty!");
 		}
 		
-		
-		
-		
 	}
 	
 	public void removeLast() {
