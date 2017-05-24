@@ -2,6 +2,7 @@
 package cache.lru;
 
 public class Node {
+	
 	int key;
 	int value;
 	Node pre;
