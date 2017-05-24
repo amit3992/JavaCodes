@@ -26,8 +26,8 @@ public class PowerN {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		double x = 2;
-		int y = 3;
+		double x = 4;
+		int y = -3;
 		
 		System.out.println("Ans -> " + powN(x,y));
 	}
