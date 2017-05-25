@@ -13,9 +13,10 @@ public class PowerN {
 		
 		temp = powN(x, y/2);
 		
+		// if y is even
 		if(y % 2 == 0) {
 			return temp * temp;
-		} else {
+		} else {		// if y is odd
 			if(y > 0)
 				return x * temp * temp;
 			else
