@@ -17,11 +17,11 @@ public class GenerateParenthesis {
 		}
 		
 		if(open < n) {
-			backtrack(result, str + "(", open+1, close, n);
+			backtrack(result, str + "{", open+1, close, n);
 		}
 		
 		if(close < open) {
-			backtrack(result, str + ")", open, close+1, n);
+			backtrack(result, str + "}", open, close+1, n);
 		}
 	}
 
