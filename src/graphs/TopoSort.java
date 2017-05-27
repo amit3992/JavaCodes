@@ -22,9 +22,9 @@ public class TopoSort {
 		Stack st = new Stack();
 		
 		boolean [] visited = new boolean[this.v];
-		for(int i = 0; i < this.v; i++) {
+		/*for(int i = 0; i < this.v; i++) {
 			visited[i] = false;
-		}
+		}*/
 		
 		for(int i = 0; i < this.v; i++) {
 			if(visited[i] ==  false) {

@@ -1,11 +1,9 @@
 /BST/
 /BufferSimulation/
 /DSA/
-/Files.class
-/IndeedArray.class
 /School/
 /TreeTest/
-/Utils.class
+/algorithms/
 /cache/
 /code/
 /com/
@@ -18,7 +16,6 @@
 /hackerrank/
 /hashmap/
 /heap/
-/itemImage.class
 /leetCode/
 /mergingTables/
 /myDoublyLinkedList/
@@ -27,6 +24,9 @@
 /search/
 /sorting/
 /test/
+/Files.class
+/IndeedArray.class
+/Utils.class
+/itemImage.class
 /testFileClass.class
 /testReplace.class
-/algorithms/

@@ -75,7 +75,53 @@ public class SlidingWindowMax {
 			result.add(val);
 		}
 		
-		return new ArrayList<Integer>();
+		return result;
+	}
+	
+	
+	/* ========================================================= ARRAY DEQUE SOLUTION ============================================================= */
+	
+	public ArrayList<Integer> slidingWindowDeque(int[] array) {
+		
+		int n = array.length;
+		
+		if(n < this.win_sz) {
+			return new ArrayList<Integer>();
+		}
+		
+		// Declare array deque
+		ArrayDeque<Integer> queue = new ArrayDeque<Integer>();
+		
+		// Get max for the first window
+		for(int i = 0; i < this.win_sz; i++) {
+			
+			while(!queue.isEmpty() && array[i] >= queue.peekLast()) {
+				queue.removeLast();
+			}
+			
+			queue.addLast(array[i]);
+		}
+		
+		result.add(queue.peekFirst());
+		
+		for(int i = this.win_sz; i < n; i++) {
+			
+			/*Remove all the elements which are smaller than current number from the tail of the queue*/
+			while(!queue.isEmpty() && array[i] >= queue.peekLast()) {
+				queue.removeLast();
+			}
+			
+			/* Remove first number if it doesnt fall in the window anymore*/
+			if(!queue.isEmpty() && queue.peekFirst() <= array[i - this.win_sz]) {
+				queue.removeFirst();
+			}
+			
+			queue.addLast(array[i]);
+			
+			result.add(queue.peekFirst());
+		}
+		
+		return result;
 	}
 	
 
@@ -87,6 +133,12 @@ public class SlidingWindowMax {
 		
 		System.out.println("Linear time solution -> ");
 		for(int i: sw.slideWindowSmart(array)) {
+			System.out.print(i + " ");
+		}
+		
+		
+		System.out.println("\nArray deque solution -> ");
+		for(int i: sw.slidingWindowDeque(array)) {
 			System.out.print(i + " ");
 		}
 		
