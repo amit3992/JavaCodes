@@ -58,7 +58,7 @@ public class BinaryTreeIterator {
 				successor = root;
 				root = root.left;
 			}
-			
+	
 			else {
 				if(root.right != null) {
 					successor = findMin(root.right);

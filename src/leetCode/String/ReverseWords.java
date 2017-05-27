@@ -45,7 +45,7 @@ public class ReverseWords {
 	}
 
 	public static void main(String[] args) {
-		String s = "the sky is blue";
+		String s = "The quick brown fox jumped over the lazy dog.";
 		
 		System.out.println(reverseWords(s));
 		System.out.println();
