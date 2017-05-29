@@ -3,77 +3,60 @@ import java.util.*;
 
 public class LRUCache {
 	
-	HashMap<Integer, Node> nodeMap;
 	int capacity;
-	int count;
-	Node head;
-	Node tail;
+	HashMap<Integer, Node> cache;
+	LinkedList<Node> elements;
 	
 	LRUCache(int capacity) {
 		this.capacity = capacity;
-		nodeMap = new HashMap<Integer, Node>();
-		
-		this.count = 0;
-		
-		head = new Node(0,0);
-		tail = new Node(0,0);
-		
-		head.next = tail;
-		tail.pre = head;
-		head.pre = null;
-		tail.next = null;
-		
-	}
-	
-	private void addToHead(Node node) {
-		
-		node.next = head.next;
-		node.next.pre = node;
-		node.pre = head;
-		head.next = node;
-		
-	}
-	
-	public void deleteNode(Node node) {
-		
-		node.pre.next = node.next;
-		node.next.pre = node.pre;
+		cache = new HashMap<Integer, Node>();
+		elements = new LinkedList<Node>();
 	}
 	
 	public int get(int key) {
-		if(nodeMap.get(key) != null) {
-			Node node = nodeMap.get(key);
-			int result = node.value;
-			
-			deleteNode(node);
-			addToHead(node);
-			
-			return result;
-		}
-		else {
+		
+		Node val = cache.get(key);
+		if(val == null) {
+			System.out.println("Value doesn't exist in cache!");
 			return -1;
+		} else {
+			elements.remove(val);
+			elements.addLast(val);
+			return val.data;
 		}
 	}
 	
-	public void put(int key, int value) {
-		if(nodeMap.get(key) != null) {
-			Node node = nodeMap.get(key);
-			deleteNode(node);
-			addToHead(node);
+	public void set(int key, int value) {
+		Node newNode = cache.get(key);
+		
+		if(newNode == null) {
+			evictIfNeeded();
+			newNode = new Node(key, value);
+			cache.put(newNode.key, newNode);
+			elements.addLast(newNode);
+		} else {
+			elements.remove(newNode);
+			newNode = new Node(newNode.key, value);
+			cache.put(key, newNode);
+			elements.addLast(newNode);
 		}
-		else {
-			Node node = new Node(key, value);
-			nodeMap.put(key, node);
-			if(count < this.capacity) {
-				count++;
-				addToHead(node);
-			}
-			else {
-				nodeMap.remove(tail.pre.key);
-				deleteNode(tail.pre);
-				addToHead(node);
-			}
+	}
+	
+	void evictIfNeeded() {
+		if(cache.size() >= this.capacity) {
+			Node evictNode = elements.removeFirst();
+			cache.remove(evictNode.key);
 		}
+	}
+	
+	void printCache() {
+		ListIterator<Node> lt = elements.listIterator();
+		while(lt.hasNext()) {
+			Node thisNode = lt.next();
+			System.out.println("Key: " + thisNode.key + " | Value -> " + thisNode.data);
+		}
+			
+			
 	}
 
 }

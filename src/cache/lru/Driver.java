@@ -1,22 +1,28 @@
 package cache.lru;
+import java.util.*;
 
 public class Driver {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		LRUCache cache = new LRUCache( 2 /* capacity */ );
-
-		cache.put(1, 1);
-		cache.put(2, 2);
-		System.out.println(cache.get(1));       // returns 1
-		cache.put(3, 3);    // evicts key 2
-		System.out.println(cache.get(2));       // returns -1 (not found)
-		cache.put(4, 4);    // evicts key 1
-		System.out.println(cache.get(1));       // returns -1 (not found)
-		System.out.println(cache.get(3));       // returns 3
-		System.out.println(cache.get(4));
+		LRUCache lru = new LRUCache(5);
+		lru.set(1, 10);
+		lru.set(2, 20);
+		lru.set(3, 30);
+		lru.set(4, 40);
+		lru.set(5, 50);
 		
+		System.out.println("Original contents: ");
+		lru.printCache();
+		
+		lru.get(5);
+		lru.set(3, 70);
+		lru.set(7, 110);
+		
+		System.out.println();
+		System.out.println("Cache status");
+		lru.printCache();
 
 	}
 

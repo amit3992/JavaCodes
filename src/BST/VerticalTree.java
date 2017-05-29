@@ -107,7 +107,7 @@ public class VerticalTree {
 		vt.traverseVertical(root);
 		
 		
-		VerticalTree tree = new VerticalTree();
+		/*VerticalTree tree = new VerticalTree();
 		Node root2 = new Node(1);
         root2.left = new Node(2);
         root2.right = new Node(3);
@@ -115,7 +115,7 @@ public class VerticalTree {
         root2.left.right = new Node(5);
         
         System.out.println("Diameter of tree 2 -> " + tree.getDiameter(root2));
-        System.out.println("Diameter of tree 1 -> " + vt.getDiameter(root));
+        System.out.println("Diameter of tree 1 -> " + vt.getDiameter(root));*/
  
 		
 

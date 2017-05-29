@@ -4,35 +4,39 @@ import java.util.*;
 
 public class SquareRoot {
 	
-	public static int sqrt(int x) {
-		if(x == 0) {
-			return 0;
-		} else if(x == 1) {
-			return 1;
+	static double episilon = 0.00001;
+	
+	public static double sqrt(double num) {
+		
+		if(num < 0) {
+			return -1;
 		}
 		
-		int left = 0;
-		int right = x;
-		int mid = 0;
-		int ans = 0;
+		double low = 0;
+		double high = 1 + (num/2);
+		double mid = 0;
 		
-		while(left <= right) {
-			mid = left + (right-left)/2;
+		while(low < high) {
+			mid = low + (high - low)/2;
 			
-			if(mid <= x/mid) {
-				left = mid + 1;
-				ans = mid;
+			double sq = mid * mid;
+			double diff = Math.abs(num - sq);
+			
+			if(diff <= episilon) {
+				return mid;
+			} else if(sq < num) {
+				low = mid;
 			} else {
-				right = mid - 1;
+				high = mid;
 			}
 		}
 		
-		return ans;
+		return -1;
 	}
 
 	public static void main(String[] args) {
 		
-		System.out.println("Square root -> " + sqrt(123));
+		System.out.println("Square root -> " + sqrt(9));
 	}
 
 }

@@ -1,15 +1,13 @@
-// Node class for least recently used cache
 package cache.lru;
 
 public class Node {
 	
-	int key;
-	int value;
-	Node pre;
-	Node next;
+	int data;
+	int key; 
 	
-	Node(int key, int value) {
+	Node(int key, int data) {
 		this.key = key;
-		this.value = value;
+		this.data = data;
 	}
+
 }
