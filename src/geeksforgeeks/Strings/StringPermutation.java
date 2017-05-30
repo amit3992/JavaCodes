@@ -56,7 +56,7 @@ public class StringPermutation {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String s = "AABC";
+		String s = "ABC";
 		StringPermutation sp = new StringPermutation();
 		
 		for(String str: sp.permuteString(s.toCharArray())) {

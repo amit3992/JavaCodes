@@ -21,6 +21,7 @@ public class RunningMedian {
 	}
 	
 	public void addNumber(int value) {
+		
 		if(maxHeap.isEmpty()) {
 			maxHeap.add(value);
 		} else if(maxHeap.size() == minHeap.size()) {

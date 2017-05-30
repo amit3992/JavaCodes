@@ -8,7 +8,7 @@ public class GetAllSubstrings {
 	private static void getAllSubstrings(String s) {
 		int len = s.length();
 		
-		for(int i = 1; i <= len; i++) {
+		for(int i = 2; i <= len; i++) {
 			for(int j = 0; j <= len; j++) {
 				int k = i + j - 1;
 				
