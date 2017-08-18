@@ -1,6 +1,7 @@
 package game.numberguess;
 import java.math.*;
 import java.util.*;
+import java.io.*;
 
 public class NumberGame {
 	
@@ -16,7 +17,7 @@ public class NumberGame {
 	
 	}
 	
-	void start() {
+	void start() throws IOException {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -51,7 +52,7 @@ public class NumberGame {
 		return input.equalsIgnoreCase("yes");
 	}
 
-	private void playGame(Player p) {
+	private void playGame(Player p) throws IOException {
 		
 		int games = p.getGames();
 		games++;
@@ -104,17 +105,18 @@ public class NumberGame {
 		
 	}
 
-	private int getGuess(int numberOfTries) {
+	private int getGuess(int numberOfTries) throws IOException {
 		
 		int guess;
 		boolean fail;
-		Scanner sc = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String line;
 		
 		do {
-			
 			fail = false;
 			System.out.println("Enter your guess (Number of tries: " + numberOfTries + " ): ");
-			guess = sc.nextInt();
+			line = br.readLine();
+			guess = Integer.parseInt(line);
 			
 			if(guess < 0 || guess > 100) {
 				System.out.println("ERROR! Invalid Input. Try again!");
