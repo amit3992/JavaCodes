@@ -15,6 +15,7 @@ public class KeypadPattern {
 	}
 	
 	public void backtrack(ArrayList<String> result, String str, int index, String num) {
+		
 		if(index >= num.length()) {
 			result.add(str);
 			return;

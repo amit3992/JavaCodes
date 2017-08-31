@@ -25,13 +25,16 @@ public class RunningMedian {
 		if(maxHeap.isEmpty()) {
 			maxHeap.add(value);
 		} else if(maxHeap.size() == minHeap.size()) {
+			
 			if(value < minHeap.peek()) {
 				maxHeap.add(value);
 			} else {
 				minHeap.add(value);
 				maxHeap.add(minHeap.remove());
 			}
+		
 		} else if(maxHeap.size() > minHeap.size()) {
+			
 			if(value > maxHeap.peek()) {
 				minHeap.add(value);
 			} else {
@@ -42,14 +45,18 @@ public class RunningMedian {
 	}
 	
 	public double getMedian() {
+		
 		if(maxHeap.isEmpty()) {
 			return 0;
+			
 		} else if(maxHeap.size() == minHeap.size()) {
+			
 			int maxH = maxHeap.peek();
 			int minH = minHeap.peek();
 			
 			return (maxH + minH)/2.0;
 		} else {
+			
 			return maxHeap.peek();
 		}
 	}
