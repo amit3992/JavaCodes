@@ -12,6 +12,7 @@ public class ReverseWords {
 		
 		while(stk.hasMoreTokens()) {
 			String strng = stk.nextToken();
+			
 			sb.insert(0, strng);
 			sb.insert(0, " ");
 		}

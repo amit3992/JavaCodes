@@ -1,76 +1,66 @@
 package algorithms.backtracking;
 import java.util.*;
 
-class TrieNode {
-	char ch;
-	HashMap<Character, TrieNode> children;
-	boolean endOfWord;
-	
-	TrieNode() {
-		this.children = new HashMap<Character, TrieNode>();
-		this.endOfWord = false;
-	}
-	
-	public TrieNode getChild(char ch) {
-		return this.children.get(ch);
-	}
-}
+
 public class WordBreakII {
 	
-	TrieNode root;
-	
-	WordBreakII() {
-		root = new TrieNode();
+	public boolean isValid(String str, Set<String> dict) {
+		
+		return wordBreakUtil(str, str.length(), "", dict);
 	}
 	
-	public void insert(String word) {
-		TrieNode current = root;
+	private boolean wordBreakUtil(String str, int size, String result, Set<String> dict) {
 		
-		for(int i = 0; i < word.length(); i++) {
-			char ch = word.charAt(i);
+		/* Process all prefixes one by one */
+		for(int i = 0; i < size; i++) {
 			
-			TrieNode node = current.getChild(ch);
-			if(node == null) {
-				node = new TrieNode();
-				current.children.put(ch, node);
+			String prefix = str.substring(0, i);
+			
+			/*
+			 * if dictionary conatins this prefix, then
+        	// we check for remaining string. Otherwise
+        	// we ignore this prefix (there is no else for
+        	// this if) and try next
+			 * 
+			 * */
+			if(dict.contains(prefix)) {
+				
+				if(i == size) {
+					
+					result += prefix;
+					System.out.println(result);
+					return true;
+				}
+				
+				wordBreakUtil(str.substring(i, size-i), size, result + prefix + "", dict);
 			}
-			
-			current = current.getChild(ch);
-			
 		}
-		
-		current.endOfWord = true;
+		return false;
 	}
-	
-	public boolean searchWord(String word) {
-		TrieNode current = root;
-		
-		for(int i = 0; i < word.length(); i++) {
-			char ch = word.charAt(i);
-			
-			TrieNode node = current.getChild(ch);
-			if(node == null) {
-				return false;
-			}
-			current = current.getChild(ch);
-		}
-		
-		return current.endOfWord;
-	}
-	
 	
 
 	public static void main(String[] args) {
 		
 		WordBreakII wb = new WordBreakII();
-		String[] words = {"cat", "cats", "and", "sand", "dog"};
+		Set<String> set = new HashSet<String>();
 		
-		for(int i = 0; i < words.length; i++) {
-			wb.insert(words[i]);
-		}
+		set.add("this");
+		set.add("is");
+		set.add("a");
+		set.add("te");
+		set.add("ates");
+		set.add("test");
+		set.add("cat");
+		set.add("cats");
+		set.add("sand");
+		set.add("dog");
+		
+		String s = "thisisatest";
+		
+		wb.isValid(s, set);
 		
 		
-
+		
 	}
 
 }

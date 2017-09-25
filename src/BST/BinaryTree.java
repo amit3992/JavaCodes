@@ -46,10 +46,12 @@ public class BinaryTree {
 		Node node = root;
 		
 		while(true) {
+			
 			if(node != null) {
 				st.push(node);
 				node = node.left;
 			}
+			
 			else {
 				if(st.isEmpty()) {
 					break;

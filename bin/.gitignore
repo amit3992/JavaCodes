@@ -4,7 +4,9 @@
 /itemImage.class
 /testFileClass.class
 /testReplace.class
+/.classpath
 /.gitignore
+/.project
 /BST/
 /BufferSimulation/
 /DSA/
@@ -27,6 +29,8 @@
 /hashmap/
 /heap/
 /leetCode/
+/TwoSumDesign/
+/bitManipulationProblems/
 /mergingTables/
 /myDoublyLinkedList/
 /myList/
@@ -34,6 +38,5 @@
 /search/
 /sorting/
 /test/
-/TwoSumDesign/
-/TicTacToe/
-/bitManipulationProblems/
+/IndeedArray2.class
+/Stringifier.class

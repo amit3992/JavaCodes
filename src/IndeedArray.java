@@ -6,9 +6,12 @@ public class IndeedArray {
 		int j;
 		int start,end;
 		//System.out.println(num.length-1);
+		
 		for(int i = 0; i<num.length-1; i++)	{
 			j = i+1;
+			
 			start = num[i];
+			
 			while(num[j]-num[i] == 1) {
 			
 				//System.out.print(num[i]+" ");
@@ -17,13 +20,15 @@ public class IndeedArray {
 				if(j > num.length-1)
 					break;
 			}
-				end = num[i];
-				if(start == end)
-					System.out.print(start+",");
-				else if(start!= end && end!=num[num.length-1])
-					System.out.print(start+"-"+end+",");
-				else
-					System.out.print(start+"-"+end);
+			
+			end = num[i];
+				
+			if(start == end)
+				System.out.print(start+",");
+			else if(start!= end && end!= num[num.length-1])
+				System.out.print(start+"-"+end+",");
+			else
+				System.out.print(start+"-"+end);
 		}
 	}
 }
