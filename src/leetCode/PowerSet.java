@@ -14,7 +14,7 @@ public class PowerSet {
 		
 		for(count = 0; count < power_size; count++) {
 			
-			System.out.println("Count -> " + count);
+			//System.out.println("Count -> " + count);
 			for(int j = 0; j < size; j++) {
 				
 				if(checkBit(count, j)) {
