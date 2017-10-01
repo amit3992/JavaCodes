@@ -177,15 +177,15 @@ public class BinaryMinHeap<T> {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		BinaryMinHeap<String> heap = new BinaryMinHeap<String>();
-		heap.Add(3, "Amit");
-		heap.Add(4, "Brian");
-		heap.Add(8, "Caleb");
-		heap.Add(1, "Damien");
-		heap.Add(10, "Elon");
+		heap.Add(50, "Google");
+		heap.Add(100, "Apple");
+		heap.Add(50, "Google");
+		heap.Add(75, "Microsoft");
+		heap.Add(50, "Google");
+		
 		
 		heap.printHeap();
-		heap.decreaseWeight("Lisa", 11);
-		heap.printHeap();
+		
 		//System.out.println("Min weight string: " + heap.extractMin());
 		
 		
