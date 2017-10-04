@@ -10,6 +10,7 @@ public class MyTrie {
 	int charCount;
 	
 	public MyTrie() {
+		
 		root = new TrieNode();
 		endOfWord = false;
 		isBadSet = false;

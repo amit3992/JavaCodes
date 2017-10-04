@@ -4,7 +4,7 @@ import java.util.*;
 public class EditDistance {
 	
 	public static int getMin(int a, int b, int c) {
-		return Math.min(Math.min(a, b), b);
+		return Math.min(Math.min(a, b), c);
 	}
 	
 	public static int getEditDistance(String s1, String s2) {
@@ -32,19 +32,17 @@ public class EditDistance {
 		for(int j = 0; j <= n; j++) {
 			d[0][j] = j;
 		}
-		
-		int cost = 0;
-		
+			
 		for(int i = 1; i <= m; i++) {
 			for(int j = 1; j <= n; j++) {
 				
 				if(s1.charAt(i - 1) == s2.charAt(j - 1)) {
-					cost = 1;
+					d[i][j] = d[i-1][j-1];
 				} else {
-					cost = 0;
+					d[i][j] = 1 + getMin(d[i-1][j], d[i][j-1], d[i-1][j-1]);	
 				}
 				
-				d[i][j] = getMin(d[i-1][j] + 1, d[i][j-1] + 1, d[i-1][j-1] + cost);	
+				
 			}
 		}
 		

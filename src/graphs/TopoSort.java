@@ -71,14 +71,14 @@ public class TopoSort {
         g.addEdge(2, 3);
         g.addEdge(3, 1); */
 		
-		TopoSort g = new TopoSort(5);
-		g.addEdge(1, 0);
-		g.addEdge(2, 1);
-		g.addEdge(2, 0);
+		TopoSort g = new TopoSort(6);
+		g.addEdge(0, 3);
+		g.addEdge(5, 1);
+		g.addEdge(1, 3);
+		g.addEdge(5, 0);
 		g.addEdge(3, 2);
-		g.addEdge(3, 0);
-		g.addEdge(4, 1);
-		g.addEdge(4, 2);
+		// g.addEdge(4, 1);
+		// g.addEdge(4, 2);
  
         System.out.println("Following is a Topological " +
                            "sort of the given graph");

@@ -7,10 +7,8 @@ public class StockMarket {
 	private HashMap<String, Stock> stockMap;
 	
 	StockMarket() {
-		
 		stockList = new ArrayList<String>();
 		stockMap = new HashMap<String, Stock>();
-		
 	}
 	
 	
@@ -47,7 +45,6 @@ public class StockMarket {
 		
 		if(!stockMap.containsKey(name)) {
 			stock = new Stock(name, value);
-			
 			stockMap.put(name, stock);
 		}
 		else {
@@ -95,7 +92,7 @@ public class StockMarket {
 		String maxStock = stockList.get(0);
 		
 		Collections.swap(stockList, 0, size);
-		stockList.remove(size);
+		stockList.remove(size); // Remove from list but not from map
 		
 		int current = 0;
 		size--;

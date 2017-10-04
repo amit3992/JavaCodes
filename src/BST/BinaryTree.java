@@ -51,7 +51,6 @@ public class BinaryTree {
 				st.push(node);
 				node = node.left;
 			}
-			
 			else {
 				if(st.isEmpty()) {
 					break;

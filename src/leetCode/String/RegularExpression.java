@@ -12,6 +12,7 @@ public class RegularExpression {
 		    return false;
 		  }
 
+		  /* Condition if first 2 chars are 'a*' */
 		  if (pattern.length() > 1 && pattern.charAt(1) == '*') {
 		    
 		    String remaining_pattern = pattern.substring(2);
@@ -39,7 +40,8 @@ public class RegularExpression {
 		  if(text.isEmpty() || pattern.isEmpty()) {
 		    return false;
 		  }
-
+		  
+		  /* Condition if first char == '.' or it matches with pattern */
 		  if(pattern.charAt(0) == '.' || pattern.charAt(0) == text.charAt(0)) {
 		    
 			String remaining_text = "";

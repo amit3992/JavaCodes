@@ -7,9 +7,11 @@ public class DisjointSet {
 	private HashMap<Long, Node> map = new HashMap<>();
 	
 	class Node {
+		
 		long data;
 		Node parent;
 		int rank;
+		int total = 1;
 	}
 	
 	
@@ -20,6 +22,15 @@ public class DisjointSet {
 		node.parent = node;	// Points the parent to itself
 		node.rank = 0;
 		map.put(data,node);
+	}
+	
+	public int getTotal(long a, long b) {
+		
+		Node p1 = findSet(map.get(a));
+		Node p2 = findSet(map.get(b));
+		
+		int sum = p1.total + p2.total;
+		return sum;
 	}
 	
 	// Combines two sets together. Union by rank.
@@ -40,15 +51,19 @@ public class DisjointSet {
 			//Increment rank only if both sets have same rank
 			parent1.rank = (parent1.rank == parent2.rank) ? 1 + parent1.rank : parent1.rank;
 			parent2.parent = parent1;
+			
+			parent1.total = parent1.total + 1;
 		}
 		else  {
 			parent1.parent = parent2;
+			parent2.total = parent2.total + 1;
 		}
 		
 		return true;
 	}
 	
 	public long findSet(long data) {
+		
 		return findSet(map.get(data)).data;
 	}
 	
