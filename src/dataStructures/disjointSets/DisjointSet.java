@@ -7,7 +7,6 @@ public class DisjointSet {
 	private HashMap<Long, Node> map = new HashMap<>();
 	
 	class Node {
-		
 		long data;
 		Node parent;
 		int rank;
@@ -35,6 +34,7 @@ public class DisjointSet {
 	
 	// Combines two sets together. Union by rank.
 	public boolean Union(long data1, long data2) {
+		
 		Node node1 = map.get(data1);
 		Node node2 = map.get(data2);
 		

@@ -17,8 +17,6 @@ public class KSumSubsets {
 		int size = grid.length;
 		int power_size = (int) Math.pow(2, new Double(size));
 		
-		
-		
 		for(int count = 0; count < power_size; count++) {
 			int target = 0;
 			ArrayList<Integer> set = new ArrayList<Integer>();

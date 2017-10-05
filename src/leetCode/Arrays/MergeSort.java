@@ -63,6 +63,7 @@ public class MergeSort {
 		int m = 0;
 		
 		if(r > l) {
+			
 			m = l + (r - l)/2;
 			mergeSort(array, l, m);
 			mergeSort(array, m+1, r);
