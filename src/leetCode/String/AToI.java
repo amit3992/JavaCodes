@@ -31,7 +31,7 @@ public class AToI {
 		while(i < s.length() && s.charAt(i) >= '0' && s.charAt(i) <= '9'){
 			result = result * 10 + (s.charAt(i) - '0');
 			
-			System.out.println(result);
+			//System.out.println(result);
 			i++;
 		}
 		
@@ -52,7 +52,7 @@ public class AToI {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String a = " 7 U 0 T7165  0128862 089 39 5";
+		String a = " 75";
         System.out.println(atoi(a));
 
 	}

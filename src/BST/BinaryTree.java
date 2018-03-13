@@ -129,7 +129,7 @@ public class BinaryTree {
 	           if(nodeCount == 0) {
 	               
 	               for(int node: nodeList) {
-	                   System.out.print(node +" ");
+	                   System.out.print(node + " ");
 	               }
 	               return;
 	           }
@@ -151,7 +151,6 @@ public class BinaryTree {
 	                  q.add(newNode.right);
 	               }
 	                   
-	               
 	               nodeCount--;
 	                   
 	           }

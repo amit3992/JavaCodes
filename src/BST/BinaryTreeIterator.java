@@ -52,14 +52,13 @@ public class BinaryTreeIterator {
 		Node successor = null;
 		
 		while(root != null) {
+			
 			if(root.key < data) {
 				root = root.right;
 			} else if(root.key > data) {
 				successor = root;
 				root = root.left;
-			}
-	
-			else {
+			} else {
 				if(root.right != null) {
 					successor = findMin(root.right);
 				}

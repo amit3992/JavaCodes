@@ -16,7 +16,8 @@ public class Permutations {
 		   if(tempList.size() == nums.length){
 		      list.add(new ArrayList<>(tempList));
 		   } else{
-		      for(int i = 0; i < nums.length; i++){ 
+		      
+			   for(int i = 0; i < nums.length; i++){ 
 		         if(tempList.contains(nums[i])) continue; // element already exists, skip
 		         tempList.add(nums[i]);
 		         backtrack(list, tempList, nums);
@@ -28,7 +29,7 @@ public class Permutations {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int[] nums = {1, 2, 3, 4};
+		int[] nums = {1, 2, 3};
 		
 		Permutations np = new Permutations();
 		

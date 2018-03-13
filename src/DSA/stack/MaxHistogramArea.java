@@ -29,18 +29,19 @@ public class MaxHistogramArea {
 				}
 			}
 		}
-			while(!stack.isEmpty()) {
-				int top = stack.pollFirst();
-				if(stack.isEmpty()) {
-					area = nums[top] * i;
-				} else {
-					area = nums[top] * (i - stack.peekFirst() - 1);
-				}
-				
-				if(area > maxArea) {
-					maxArea = area;
-				}
+		
+		while(!stack.isEmpty()) {
+			int top = stack.pollFirst();
+			if(stack.isEmpty()) {
+				area = nums[top] * i;
+			} else {
+				area = nums[top] * (i - stack.peekFirst() - 1);
 			}
+				
+			if(area > maxArea) {
+				maxArea = area;
+			}
+		}
 		
 		return maxArea;
 	}

@@ -30,12 +30,12 @@ public class RemoveConsecutiveDupicates {
 			
 		}
 		
-		if(index == s.length()){
+		if(index == s.length()) {
 			System.out.println(ans);
 			return;
 		}
 		
-		if(ans.length() !=0 &&  s.charAt(index) == ans.charAt(ans.length()-1)){
+		if(ans.length() != 0 &&  s.charAt(index) == ans.charAt(ans.length()-1)){
 			ShortenString(s, ans + (s.charAt(index)), index+1, count+1);
 		}else{
 			ShortenString(s, ans + (s.charAt(index)), index+1, 1);
