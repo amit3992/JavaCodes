@@ -27,7 +27,7 @@ public class MajorityElementII {
 			} else if (count1 == 0) {
 				candidate1 = nums[i];
 				count1 = 1;
-			} else if( count2 == 0) {
+			} else if(count2 == 0) {
 				candidate2 = nums[i];
 				count2 = 1;
 			} else {
@@ -63,6 +63,7 @@ public class MajorityElementII {
 	
 	public static void main(String[] args) {
 		int[] array = {3,3,3,2,4,4,4,4,4,3};
+		int [] array2 = {1,2,5,9,5,9,5,5,5};
 		System.out.println(getMajority(array).toString());
 
 	}
