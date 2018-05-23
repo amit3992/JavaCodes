@@ -6,6 +6,7 @@ public class MergeSort {
 	
 	public void mergeSort(int [] arr) {
 		int n = arr.length;
+		
 		if(n < 2) {
 			return;
 		}

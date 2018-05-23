@@ -14,8 +14,8 @@ public class QuickSort {
 	}
 	
 	private void doQuickSort(int [] array, int start, int end) {
+		
 		if(start < end) {
-			
 			int pivot = partition(array, start, end);
 			doQuickSort(array, start, pivot - 1);
 			doQuickSort(array, pivot + 1, end);
@@ -24,11 +24,7 @@ public class QuickSort {
 		}
 	}
 	
-	private void swap(int [] array, int a, int b) {
-		int temp = array[a];
-		array[a] = array[b];
-		array[b] = temp;
-	}
+	
 	private int partition(int [] array, int start, int end) {
 		
 		int pivot = array[end];
