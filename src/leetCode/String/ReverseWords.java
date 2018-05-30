@@ -46,11 +46,13 @@ public class ReverseWords {
 	}
 
 	public static void main(String[] args) {
-		String s = "The quick brown fox jumped over the lazy dog.";
+		//String s = "The quick brown fox jumped over the lazy dog.";
 		
-		System.out.println(reverseWords(s));
-		System.out.println();
-		System.out.println("Revesion without extra space -> " + reverseWordsNoXSpace("a b"));
+		String input = "the sky is blue";
+		//System.out.println(reverseWords(s));
+		//System.out.println();
+		//System.out.println("Revesion without extra space -> " + reverseWordsNoXSpace("a b"));
+		
 
 	}
 

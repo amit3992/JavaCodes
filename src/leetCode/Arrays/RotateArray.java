@@ -9,7 +9,7 @@ public class RotateArray {
 		}
 		
 		order = order % arr.length;
-		if(order < 0){
+		if(order < 0) {
 			order = order + arr.length;
 		}
 	 
