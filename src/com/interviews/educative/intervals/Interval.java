@@ -17,4 +17,8 @@ public class Interval {
 		this.end = e;
 	}
 
+	@Override
+	public String toString() {
+		return "[" + this.start + "," + this.end + "]";
+	}
 }
