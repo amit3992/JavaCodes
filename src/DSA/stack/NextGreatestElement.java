@@ -27,15 +27,15 @@ public class NextGreatestElement {
 				int element = st.pop();
 				
 				while(element < next) {
-					
+
 					print(element, next);
-					
-					if(st.empty())
+
+					if (st.empty())
 						break;
-					
+
 					element = st.pop();
 				}
-				
+
 				if(element > next) {
 					st.push(element);
 				}

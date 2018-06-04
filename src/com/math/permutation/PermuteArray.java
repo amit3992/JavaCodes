@@ -6,6 +6,7 @@ import java.util.*;
 public class PermuteArray {
 	
 	public static void printArray(int [] array) {
+
 		for(int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
 		}
@@ -15,6 +16,7 @@ public class PermuteArray {
 	public static void heapPermutation(int[] array, int size, int n) {
 		if(size == 1) {
 			printArray(array);
+			return;
 		}
 		
 		for(int i = 0; i < size; i++) {
@@ -40,7 +42,7 @@ public class PermuteArray {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int [] array = {1, 1, 2};
+		int [] array = {1, 2, 3};
 		heapPermutation(array, array.length, array.length);
 
 	}
