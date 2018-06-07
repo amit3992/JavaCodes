@@ -16,6 +16,7 @@ public class BuySellStock {
 			for(int j = 1; j < T[0].length; j++) {
 				
 				int maxVal = 0;
+
 				for(int m = 0; m < j; m++) {
 					maxVal = Math.max(maxVal, prices[j] - prices[m] + T[i-1][m]);
 				}
@@ -37,7 +38,9 @@ public class BuySellStock {
 		int[][] T = new int[k+1][days];
 		
 		for(int i = 1; i < T.length; i++) {
+
 			int maxDiff = -prices[0];
+
 			for(int j = 1; j < T[0].length; j++) {
 				T[i][j] = Math.max(T[i][j-1], prices[j] + maxDiff);
 				maxDiff = Math.max(maxDiff, T[i-1][j] - prices[j]);
