@@ -18,6 +18,7 @@ public class BinaryTree {
 	}
 	
 	public void recursivePostOrder(Node root) {
+
 		if(root == null) {
 			return;
 		}
@@ -28,7 +29,8 @@ public class BinaryTree {
 	}
 	
 	public void recursivePreOrder(Node root) {
-		if(root == null)
+
+	    if(root == null)
 			return;
 		
 		System.out.print(root.key + " ");
@@ -93,6 +95,7 @@ public class BinaryTree {
 		Stack<Node> st = new Stack<Node>();
 		
 		st.push(root);
+
 		while(!st.isEmpty()) {
 			root = st.pop();
 			System.out.print(root.key + " ");
