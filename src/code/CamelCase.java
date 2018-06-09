@@ -25,9 +25,19 @@ public class CamelCase {
     }
 
     public static void main(String[] args) {
+
+        int [] array = {4, 2, 5, 1 , 3};
+        double target = 3.714286;
+
+        for(int i = 0; i < array.length; i++) {
+            double diff = Math.abs(target - array[i]);
+            System.out.println("Diff for num -> " + array[i] + " ==> " + diff);
+        }
+        /*
         Scanner in = new Scanner(System.in);
         String s = in.next();
         
         System.out.println(countCamelCases(s));
+        */
     }
 }

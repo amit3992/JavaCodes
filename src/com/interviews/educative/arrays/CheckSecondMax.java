@@ -7,20 +7,18 @@ class CheckSecondMax {
         /* Null checks */
         if(arr == null || arr.length == 0) {
             return -1;
-        }          
-
-        /* Find max */
-        int max = arr[0];
-        for(int i = 0; i < arr.length; i++) {
-            if(arr[i] > max) {
-                max = arr[i];
-            }
         }
+        
+        /* Find max */
+        int max1 = Integer.MIN_VALUE;
+        int max2 = Integer.MIN_VALUE;
 
-        /* Find Max 2 */
-        int max2 = arr[0];
         for(int i = 0; i < arr.length; i++) {
-            if(arr[i] > max2 && max2 < max) {
+
+            if(arr[i] > max1) {
+                max2 = max1;
+                max1 = arr[i];
+            } else if(arr[i] > max2) {
                 max2 = arr[i];
             }
         }

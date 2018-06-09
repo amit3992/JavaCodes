@@ -64,7 +64,7 @@ public class MajorityElementII {
 	public static void main(String[] args) {
 		int[] array = {3,3,3,2,4,4,4,4,4,3};
 		int [] array2 = {1,2,5,9,5,9,5,5,5};
-		System.out.println(getMajority(array).toString());
+		System.out.println(getMajority(array2).toString());
 
 	}
 
