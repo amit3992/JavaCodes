@@ -14,6 +14,7 @@ import java.util.*;
 public class BasicCalculator {
 	
 	private int getOperationRank(char op) {
+
 		switch(op) {
 		case '+': return 1;
 		case '-': return 1;
@@ -118,12 +119,13 @@ public class BasicCalculator {
 		String expression = "(1+(4+5+2)-3)+(6+8)";
 		String exp = "2-1+2";
 		String exp2 = "3+5 / 2";
+		String exp3 = "2*3+5/6*3+15";
 		BasicCalculator bc = new BasicCalculator();
 		
-		List<Object> post = bc.infixToPostFix(expression);
+		List<Object> post = bc.infixToPostFix(exp3);
 		System.out.println(post);
 		
-		System.out.println("Answer: " + bc.calculate(expression));
+		System.out.println("Answer: " + bc.calculate(exp3));
 
 	}
 

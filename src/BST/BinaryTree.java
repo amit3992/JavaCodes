@@ -124,7 +124,7 @@ public class BinaryTree {
 	       q.add(root);
 	       nodeList.add(root.key);
 	       
-	        int ht = 0;
+	       int ht = 0;
 	       
 	       while(true) {
 	           int nodeCount = q.size();

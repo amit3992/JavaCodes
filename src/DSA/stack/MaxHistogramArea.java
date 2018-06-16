@@ -48,7 +48,8 @@ public class MaxHistogramArea {
 
 	public static void main(String[] args) {
 		MaxHistogramArea mha = new MaxHistogramArea();
-		int input[] = {2, 1, 2, 3, 1};
+		//int input[] = {2, 1, 2, 3, 1};
+		int [] input = {0, 0, 3, 4, 2, 4};
 		int maxArea = mha.calculateMaxArea(input);
 		System.out.println("Max area: " + maxArea);
 

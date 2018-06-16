@@ -9,6 +9,7 @@ import java.util.Queue;
 public class RemoveInvalidParenthesis_II {
 	
 	private boolean isParenthesis(char ch) {
+
 		if(ch == '(' || ch == ')') {
 			return true;
 		}
@@ -67,8 +68,8 @@ public class RemoveInvalidParenthesis_II {
 					 continue;
 				 }
 				 
-				// System.out.println("First substring: " + s.substring(0, i) + " for i -> " + i);
-				// System.out.println("Second substring: " + s.substring(i + 1) + " for i -> " + i);
+				    System.out.println("First substring: " + s.substring(0, i) + " for i -> " + i);
+				    System.out.println("Second substring: " + s.substring(i + 1) + " for i -> " + i);
 				 temp = s.substring(0, i) + s.substring(i + 1);
 				 
 				 if(!visit.contains(temp)) {

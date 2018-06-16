@@ -26,7 +26,7 @@ public class FriendCircles {
                 return;
             }
             
-            if(rank[parentA] > rank[parentB]) {
+            if(rank[parentA] >= rank[parentB]) {
                 parent[parentB] = parentA;
                 if(rank[parentA] == rank[parentB]) {
                     rank[parentA]++;

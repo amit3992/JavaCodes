@@ -8,8 +8,11 @@ public class RunningMedian {
 	PriorityQueue<Integer> upperBucket;
 	
 	public RunningMedian() {
-		
+
+	    /* Java has Min heap by default */
 		upperBucket = new PriorityQueue<Integer>();
+
+        /* Max Heap */
 		lowerBucket = new PriorityQueue<Integer>(new Comparator<Integer>() {
 			public int compare(Integer a, Integer b) {
 				return -1 * a.compareTo(b);
