@@ -29,7 +29,8 @@ public class Queens {
     private boolean checkValid(Integer [] columns, int row1, int col1) {
 
         for(int row2 = 0; row2 < row1; row2++) {
-            int col2 = columns[row2];
+            
+        	int col2 = columns[row2];
 
             /* Run checks for validity */
 
