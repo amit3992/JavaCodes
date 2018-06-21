@@ -85,7 +85,7 @@ public class NextPermutation {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int [] input = {3, 2, 1};
+		int [] input = {3, 1, 2};
 		
 		NextPermutation np = new NextPermutation();
 		int [] result = np.nextPermutation(input);
