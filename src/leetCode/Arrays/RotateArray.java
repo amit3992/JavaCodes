@@ -9,8 +9,10 @@ public class RotateArray {
 		}
 		
 		order = order % arr.length;
+		System.out.println(order % arr.length);
 		if(order < 0) {
 			order = order + arr.length;
+			System.out.println(order);
 		}
 	 
 		//length of first part
@@ -46,9 +48,6 @@ public class RotateArray {
 		int k = sc.nextInt();
 		
 		rotateArray(array, k);
-		
-		
-		
 
 	}
 
